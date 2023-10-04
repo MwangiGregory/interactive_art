@@ -1,5 +1,6 @@
 import processing.net.*;
 
+
 final int N = 128;
 final int iter = 16;
 final int SCALE = 5;
@@ -54,7 +55,7 @@ void draw() {
         mx = json.getInt("mouseX");
         my = json.getInt("mouseY");
         
-        fluid.addDensity(mx, my, 2000);
+        fluid.addDensity(mx, my, 7000);
         float amtX = mx - prevMouseX;
         float amtY = my - prevMouseY;
         fluid.addVelocity(my, my, amtX, amtY);

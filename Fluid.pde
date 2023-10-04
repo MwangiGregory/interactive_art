@@ -4,6 +4,7 @@ int IX(int x, int y) {
   return x + (y * N);
 }
 
+
 class Fluid {
   int size;
   int numOfSections;
