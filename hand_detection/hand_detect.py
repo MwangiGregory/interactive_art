@@ -29,7 +29,7 @@ server.bind((host, port))
 server.listen()
 
 client, addr = server.accept()
-cap = cv2.VideoCapture(0)
+cap = cv2.VideoCapture(1)
 
 # Increase maxHands to 6 to detect up to 6 hands
 detector = HandDetector(detectionCon=0.8, maxHands=6)

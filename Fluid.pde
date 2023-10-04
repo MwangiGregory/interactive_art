@@ -79,55 +79,72 @@ class Fluid {
   }
 
   void renderD() {
-    colorMode(HSB, 255);
+    colorMode(RGB, 255);
     
     for (int i = 0; i < N; i++) {
+      float x = i * SCALE;
       for (int j = 0; j < N; j++) {
-        float x = i * SCALE;
         float y = j * SCALE;
         float d = this.density[IX(i, j)];
+        float amt = map(j, 0, this.sectionSize, 0, 1);
+        color col;
         
-        fill((d + 50) % 255,200,d);
+        fill(0); 
+        push();
+        
+        if (d > 10) {
+          
+          if (y >= 0 && y <= this.sectionSize * 0.75) {
+            fill(b1, d);
+          } else if (y > this.sectionSize * 0.75 && y < this.sectionSize * 1.25) {
+            amt = map(y, this.sectionSize * 0.75, this.sectionSize * 1.25, 0, 1);
+            col = lerpColor(b1, b2, amt);
+            fill(col, d);
+          } else if (y >= this.sectionSize * 1.25 && y <= this.sectionSize * 1.75) {
+            fill(b2, d);
+          } else if (y > this.sectionSize * 1.75 && y < this.sectionSize * 2.25) {
+            amt = map(y, this.sectionSize * 1.75, this.sectionSize * 2.25, 0, 1);
+            col = lerpColor(b2, b3, amt);
+            fill(col, d);
+          } else if (y >= this.sectionSize * 2.25 && y <= this.sectionSize * 2.75) {
+            fill(b3, d);
+          } else if (y > this.sectionSize * 2.75 && y < this.sectionSize * 3.25) {
+            amt = map(y, this.sectionSize * 2.75, this.sectionSize * 3.25, 0, 1);
+            col = lerpColor(b3, b4, amt);
+            fill(col, d);
+          } else if (y >= this.sectionSize * 3.25 && y <= this.sectionSize * 3.75) {
+            fill(b4, d);
+          } else if (y > this.sectionSize * 3.75 && y < this.sectionSize * 4.25) {
+            amt = map(y, this.sectionSize * 3.75, this.sectionSize * 4.25, 0, 1);
+            col = lerpColor(b4, b5, amt);
+            fill(col, d);
+          } else if (y >= this.sectionSize * 4.25 && y <= this.sectionSize * 4.75) {
+            fill(b5, d);
+          } else if (y > this.sectionSize * 4.75 && y < this.sectionSize * 5.25) {
+            amt = map(y, this.sectionSize * 4.75, this.sectionSize * 5.25, 0, 1);
+            col = lerpColor(b5, b6, amt);
+            fill(col, d);
+          } else if (y >= this.sectionSize * 5.25 && y <= this.sectionSize * 5.75) {
+            fill(b6, d);
+          } else if (y > this.sectionSize * 5.75 && y < this.sectionSize * 6.25) {
+            amt = map(y, this.sectionSize * 5.75, this.sectionSize * 6.25, 0, 1);
+            col = lerpColor(b6, b7, amt);
+            fill(col, d);
+          } else if (y >= this.sectionSize * 6.25 && y <= this.sectionSize * 6.75) {
+            fill(b7, d);
+          } else if (y > this.sectionSize * 6.75 && y < this.sectionSize * 7.25) {
+            amt = map(y, this.sectionSize * 6.75, this.sectionSize * 7.25, 0, 1);
+            col = lerpColor(b7, b8, amt);
+            fill(col, d);
+          } else if (y >= this.sectionSize * 7.25 && y <= this.sectionSize * 8) {
+            fill(b8, d);
+          }
+        }
+       
         noStroke();
-        square(x, y, SCALE); 
-              
-        //push();
-        
-        //if (y >= 0 && y <= this.sectionSize * 1) {
-        //  //fill(255,255,204); // yellow
-        //  //fill((d + 50) % 60,200,d);
-        //  fill(d % 60,200,d);
-        //} else if (y > this.sectionSize * 1 && y <= this.sectionSize * 2) {
-        //  //fill(255, 68, 51); // orange
-        //  //fill((d + 50) % 39,200,d);
-        //  fill(d % 100,200,d);
-        //} else if (y > this.sectionSize * 2 && y <= this.sectionSize * 3) {
-        //  //fill(255,0,0); // red
-        //  fill((d + 50) % 10,200,d);
-        //} else if (y > this.sectionSize * 3 && y <= this.sectionSize * 4) {
-        //  //fill(135, 206, 235); // sky blue
-        //  fill((d + 50) % 197,200,d);
-        //} else if (y > this.sectionSize * 4 && y <= this.sectionSize * 5) {
-        //  //fill(0,0,255); // blue
-        //  fill((d + 50) % 150,200,d);
-        //} else if (y > this.sectionSize * 5 && y <= this.sectionSize * 6) {
-        //  //fill(0,0,128); // navy blue
-        //  fill((d + 100) % 200,200,d);
-        //} else if (y > this.sectionSize * 6 && y <= this.sectionSize * 7) {
-        //  //fill(128,0,128); // purple 
-        //  fill((d + 50) % 50,200,d);
-        //} else if (y > this.sectionSize * 7 && y <= this.sectionSize * 8) {
-        //  //fill(169,169,169); // dark grey
-        //  fill((d + 50) % 120,200,d);
-        //}
-        
-        //noStroke();
-        ////stroke(0);
-        ////ellipse(x, y, SCALE, SCALE);
-        //square(x, y, SCALE);
-        ////circle(x, y, SCALE);
+        square(x, y, SCALE);
 
-        //pop();     
+        pop();     
       }
     }
   }

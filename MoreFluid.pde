@@ -1,14 +1,3 @@
-// Fluid Simulation
-// Daniel Shiffman
-// https://thecodingtrain.com/CodingChallenges/132-fluid-simulation.html
-// https://youtu.be/alhpH6ECFvQ
-
-// This would not be possible without:
-// Real-Time Fluid Dynamics for Games by Jos Stam
-// http://www.dgp.toronto.edu/people/stam/reality/Research/pdf/GDC03.pdf
-// Fluid Simulation for Dummies by Mike Ash
-// https://mikeash.com/pyblog/fluid-simulation-for-dummies.html
-
 void diffuse (int b, float[] x, float[] x0, float diff, float dt) {
   float a = dt * diff * (N - 2) * (N - 2);
   lin_solve(b, x, x0, a, 1 + 4 * a);
