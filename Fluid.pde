@@ -95,49 +95,49 @@ class Fluid {
         if (d > 10) {
           
           if (y >= 0 && y <= this.sectionSize * 0.75) {
-            fill(b1, d);
+            fill(b8, d);
           } else if (y > this.sectionSize * 0.75 && y < this.sectionSize * 1.25) {
             amt = map(y, this.sectionSize * 0.75, this.sectionSize * 1.25, 0, 1);
-            col = lerpColor(b1, b2, amt);
+            col = lerpColor(b8, b7, amt);
             fill(col, d);
           } else if (y >= this.sectionSize * 1.25 && y <= this.sectionSize * 1.75) {
-            fill(b2, d);
+            fill(b7, d);
           } else if (y > this.sectionSize * 1.75 && y < this.sectionSize * 2.25) {
             amt = map(y, this.sectionSize * 1.75, this.sectionSize * 2.25, 0, 1);
-            col = lerpColor(b2, b3, amt);
+            col = lerpColor(b7, b6, amt);
             fill(col, d);
           } else if (y >= this.sectionSize * 2.25 && y <= this.sectionSize * 2.75) {
-            fill(b3, d);
+            fill(b6, d);
           } else if (y > this.sectionSize * 2.75 && y < this.sectionSize * 3.25) {
             amt = map(y, this.sectionSize * 2.75, this.sectionSize * 3.25, 0, 1);
-            col = lerpColor(b3, b4, amt);
+            col = lerpColor(b6, b5, amt);
             fill(col, d);
           } else if (y >= this.sectionSize * 3.25 && y <= this.sectionSize * 3.75) {
-            fill(b4, d);
+            fill(b5, d);
           } else if (y > this.sectionSize * 3.75 && y < this.sectionSize * 4.25) {
             amt = map(y, this.sectionSize * 3.75, this.sectionSize * 4.25, 0, 1);
-            col = lerpColor(b4, b5, amt);
+            col = lerpColor(b5, b4, amt);
             fill(col, d);
           } else if (y >= this.sectionSize * 4.25 && y <= this.sectionSize * 4.75) {
-            fill(b5, d);
+            fill(b4, d);
           } else if (y > this.sectionSize * 4.75 && y < this.sectionSize * 5.25) {
             amt = map(y, this.sectionSize * 4.75, this.sectionSize * 5.25, 0, 1);
-            col = lerpColor(b5, b6, amt);
+            col = lerpColor(b4, b3, amt);
             fill(col, d);
           } else if (y >= this.sectionSize * 5.25 && y <= this.sectionSize * 5.75) {
-            fill(b6, d);
+            fill(b3, d);
           } else if (y > this.sectionSize * 5.75 && y < this.sectionSize * 6.25) {
             amt = map(y, this.sectionSize * 5.75, this.sectionSize * 6.25, 0, 1);
-            col = lerpColor(b6, b7, amt);
+            col = lerpColor(b3, b2, amt);
             fill(col, d);
           } else if (y >= this.sectionSize * 6.25 && y <= this.sectionSize * 6.75) {
-            fill(b7, d);
+            fill(b2, d);
           } else if (y > this.sectionSize * 6.75 && y < this.sectionSize * 7.25) {
             amt = map(y, this.sectionSize * 6.75, this.sectionSize * 7.25, 0, 1);
-            col = lerpColor(b7, b8, amt);
+            col = lerpColor(b2, b1, amt);
             fill(col, d);
           } else if (y >= this.sectionSize * 7.25 && y <= this.sectionSize * 8) {
-            fill(b8, d);
+            fill(b1, d);
           }
         }
        
@@ -170,7 +170,7 @@ class Fluid {
     for (int i = 0; i < this.density.length; i++) {
       float d = density[i];
       //density[i] = constrain(d-0.02, 0, 1500);
-      density[i] = density[i] - 0.25;
+      density[i] = density[i] - 0.35;
       
       if (density[i] < -10) {
         density[i] = 0;
